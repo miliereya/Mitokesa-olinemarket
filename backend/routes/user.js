@@ -1,28 +1,33 @@
 const router = require('express').Router()
 let User = require('../models/user.model')
 
-router.route('/add').post((req, res) => {
+router.route('/add').post(async (req, res) => {
     const { mail, name, password } = req.body
 
-    const date = Date.now()
+    let userCheck = await User.findOne({mail})
+    if(!userCheck){
+        const date = Date.now()
 
-    const bcrypt = require('bcrypt');
-    
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(mail + date, salt)
+        const bcrypt = require('bcrypt');
+        
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(mail + date, salt)
 
-    const hashTime = date
-    const newUser = new User({
-        mail,
-        name,
-        password,
-        hash,
-        hashTime
-    })
+        const hashTime = date
+        const newUser = new User({
+            mail,
+            name,
+            password,
+            hash,
+            hashTime
+        })
 
-    newUser.save()
-        .then(()=>res.json(hash))
-        .catch(err => res.status(400).json('Error: ' + err))
+        newUser.save()
+            .then(()=>res.json({hash: hash}))
+            .catch(err => res.status(400).json('Error: ' + err))
+    } else {
+        res.json('Used email')
+    }
 })
 
 router.route('/get').get((req, res) => {
@@ -35,14 +40,13 @@ router.route('/get').get((req, res) => {
 
 router.route('/hash').post(async (req, res) => {
     const hash = req.body.hash
-
     const user = await User.findOne({hash})
     let response = "Wrong hash!"
 
-    if(user[0]) {
-        new Date() - user[0].hashTime>604800000 ? response = "Old hash!" : response = "Hash is on date!"
+    if(user) {
+        new Date() - user.hashTime>604800000 ? response = "Old hash!" : response = "Hash is on date!"
     }
-    res.json(response)
+    res.json([response, user])
 })
 
 router.route('/log').post(async (req, res) => {
@@ -68,7 +72,7 @@ router.route('/log').post(async (req, res) => {
                         }
                     }
                 )
-                    .then(() => res.json(hash))
+                    .then(() => res.json(['logged', hash]))
                     .catch(err => res.status(400).json('Error '+ err))
             }
             else {

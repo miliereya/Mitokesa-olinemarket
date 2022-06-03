@@ -1,0 +1,46 @@
+.header {
+    width: 100%;
+    height: 68px;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+}
+.header_padding {
+    width: 100%;
+    height: 68px;
+}
+.wrapper {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    
+}
+.link {
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 1.3rem;
+    font-stretch: condensed;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 15px;
+    color: #1e1e20;
+}
+.link:hover {
+    background-color: #e4e3e2;
+}
+.search_icon {
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+}
+.name {
+    position: absolute;
+    left: 50%;
+    margin-top: 10px;
+    margin-left: -80px;
+    font-weight: 700;
+    font-size: 32px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
