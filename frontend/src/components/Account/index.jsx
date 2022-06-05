@@ -29,7 +29,10 @@ export const Account = () => {
 
     const hashHanlder = (hash) => {
         setHash(hash)
-        localStorage.setItem('hash', '')
+        localStorage.setItem('hash', hash)
+        if(hash==='') {
+            setUser(false)
+        }
     }
     
     return (
@@ -47,7 +50,7 @@ export const Account = () => {
                     >
                         Go to cart
                     </NavLink>
-                    <button onClick={() => setHash()} className={s.logout}>Log out</button>
+                    <button onClick={() => hashHanlder('')} className={s.logout}>Log out</button>
                 </div>
             )
             }

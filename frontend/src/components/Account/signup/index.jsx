@@ -24,9 +24,10 @@ export const Signup = ({hashHanlder}) => {
                     const data = await userAPI.logUser(logUser)
                     if(data[0] === 'logged') {
                         localStorage.setItem('hash', data[1])
+                        setLogUser('')
                         hashHanlder(data[1])
                     } else {
-                        setError('Wrong Данные')
+                        setError('Incorrect data')
                         setLogUser('')
                         setPassword('')
                     }
@@ -43,7 +44,8 @@ export const Signup = ({hashHanlder}) => {
             const fetchData = async () => {
                 try {
                     const data = await userAPI.addUser(newUser)
-                    if(data==='Used mail') {
+                    console.log(data)
+                    if(data==='Used email') {
                         setNewError('Email is already used!')
                         setNewUser('')
                     } else {
@@ -152,10 +154,10 @@ export const Signup = ({hashHanlder}) => {
                     minLength={8}
                 />
                 <div>
-                <input id='terms' name='terms' type="checkbox" />
-                <label htmlFor="terms">I promise to take this guy on a job</label>
+                <input className={s.checkbox} id='terms' name='terms' type="checkbox" />
+                <label htmlFor="terms">I promise to hire this guy</label>
                 </div>
-                <button onClick={signupHandler} className={s.link}>Sign In</button>
+                <button onClick={signupHandler} className={s.link}>Sign Up</button>
                 <p className={s.error}>{newError}</p>
             </div>
         </section>
