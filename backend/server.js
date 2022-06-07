@@ -1,5 +1,5 @@
 //Подключаем пакеты
-const express = require('express') 
+const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
 
@@ -24,6 +24,7 @@ const postRouter = require('./routes/post')
 const productRouter = require('./routes/product')
 const cartRouter = require('./routes/cart')
 
+app.use('/public', express.static('public'))
 app.use('/user', userRouter)
 app.use('/posts' , postRouter)
 app.use('/products', productRouter)

@@ -1,0 +1,98 @@
+.title {
+    text-align: center;
+    margin: 0;
+    padding: 40px 0;
+    font-size: 20px;
+    line-height: 2.7rem;
+    font-weight: 400;
+    border-top: 1px solid var(--color-dark);
+}
+
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 0 20px;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 0 1 48.658%;
+    margin-bottom: 35px;
+}
+
+.box {
+    position: relative;
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.img {
+    display: block;
+    width: 100%;
+    max-height: 600px;
+    object-fit: cover;
+}
+
+.date {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 3px 7px 2px 12px;
+    background-color: var(--color-white);
+    font-style: italic;
+    letter-spacing: .03em;
+}
+
+.name {
+    margin: 0 0 11px 0;
+    line-height: 27px;
+    font-size: 20px;
+    font-weight: 400;
+}
+.name .link {
+    display: inline-flex;
+    text-decoration: none;
+    color: var(--color-dark);
+}
+.name .link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.text {
+    line-height: 22px;
+    font-size: 15px;
+}
+
+.text.hidden {
+    max-height: 72px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    line-height: 22px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-dark);
+    cursor: pointer;
+}
+.button span {
+    transition: all .3s ease;
+    margin-left: 5px;
+}
+.button:hover span {
+    transform: translateX(5px);
+}
