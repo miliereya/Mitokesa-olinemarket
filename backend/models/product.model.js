@@ -5,12 +5,15 @@ const Schema = mongoose.Schema
 const productSchema = new Schema({
     name: {
         type: String,
-        required: true,
-        unique: true
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
     },
     type: {
         type: String,
-        required: true,
+        required: true
     },
     sex: {
         type: String,
@@ -18,6 +21,10 @@ const productSchema = new Schema({
     },
     collectionType: {
         type: String,
+        required: true
+    },
+    price: {
+        type: Number,
         required: true
     },
     sale: {

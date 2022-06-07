@@ -1,5 +1,5 @@
 .section {
-    width: 98%;
+    width: 99%;
     margin: 0 auto;
 }
 .heading {
@@ -10,9 +10,75 @@
 }
 .sub_heading {
     max-width: 100%;
-    margin: 24px auto 0;
+    margin: 24px auto 20px;
     width: 600px;
     font-size: 13px;
     line-height: 17px;
     text-align: center;
+}
+.catalog {
+    display: flex;
+    flex-wrap: wrap;
+}
+.params {
+    margin-left: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+}
+.arrow {
+    width: 12px;
+    margin-left: 3px;
+}
+.product {
+    width: 24.7%;
+    margin-top: 10px;
+    padding: 0 0.15%;
+    text-decoration: none;
+    color: #515153;
+}
+.photo {
+    height: 500px;
+    background-color: aqua;
+}
+@media (max-width: 900px) {
+    .product {
+        width: 49.5%;
+    }
+}
+.info_container {
+    padding: 0 15px;
+}
+.name_price_wrapper {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+}
+.name {
+    font-size: 15px;
+    text-transform: uppercase;
+    margin: 7px 0;
+}
+.price {
+    font-size: 15px;
+    margin: 7px 0;
+}
+.type {
+    font-weight: 400;
+    margin: 7px 0;
+    text-transform: capitalize;
+}
+.sort_popup {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    align-items:flex-start;
+    margin-top: 10px;
+    margin-left: 30px;
+    background-color: #f1f1f0;
+}
+.sort_button {
+    padding: 7px 15px;
+    cursor: pointer;
+    letter-spacing: 0.7px;
 }

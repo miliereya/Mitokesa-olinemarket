@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
-import { NavBar } from './components';
-import {AccountPage, BlogPage, CatalogPage} from './pages';
+import { NavBar, Product } from './components';
+import { AccountPage, CatalogPage, BlogPage } from './pages';
 import { Test } from './test';
 
 function App() {
@@ -10,7 +10,8 @@ function App() {
       <Routes>
         <Route exact path='/test' element={<Test />} />
         <Route exact path='/account' element={<AccountPage />} />
-        <Route exact path='/catalog' element={<CatalogPage />} />
+        <Route exact path='/catalog/:sex' element={<CatalogPage />} />
+        <Route exact path='/catalog/:collection/:name' element={<Product />} />
         <Route exact path='/blog' element={<BlogPage/>} />
       </Routes>
     </div>

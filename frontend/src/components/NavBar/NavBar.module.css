@@ -4,6 +4,7 @@
     position: fixed;
     display: flex;
     justify-content: space-between;
+    background-color: #f7f6f5;
 }
 .header_padding {
     width: 100%;
@@ -40,7 +41,7 @@
     left: 50%;
     margin-top: 10px;
     margin-left: -80px;
-    font-weight: 700;
-    font-size: 32px;
+    font-weight: 500;
+    font-size: 36px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

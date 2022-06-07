@@ -8,17 +8,17 @@ export const NavBar = () => {
             <header className={s.header}>
                 <div className={s.name}>MIKOTESA</div>
                 <div className={s.wrapper}>
-                    <NavLink 
+                    <NavLink
                         className={s.link}
-                        to="catalog"
+                        to="catalog/woman"
                     >
-                        Women
+                        Woman
                     </NavLink>
                     <NavLink 
                         className={s.link}
-                        to="catalog"
+                        to="catalog/man"
                     >
-                        Men
+                        Man
                     </NavLink>
                     <button className={s.link}><img className={s.search_icon} src={searchIcon} alt="search icon" />Search</button>
                 </div>
