@@ -1,8 +1,13 @@
+:root {
+  --color-dark: #1e1e20;
+  --color-white: #ffffff;
+}
+
 body {
   margin: 0;
   padding: 0;
   background-color: #f7f6f5;
-  color: #1e1e20;
+  color: var(--color-dark);
   min-height: 100vh;
   line-height: 1.36;
   font-family: Arial, Helvetica, sans-serif;
