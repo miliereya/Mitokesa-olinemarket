@@ -35,7 +35,7 @@ export const Catalog = () => {
         setSort(sort)
     }
 
-    const popupHadler = () => {
+    const popupHandler = () => {
         popup==='none' ? setPopup('flex') : setPopup('none')
     }
 
@@ -43,7 +43,7 @@ export const Catalog = () => {
         <section className={s.section}>
             <h2 className={s.heading}>New arrivals</h2>
             <p className={s.sub_heading}>Discover the latest arrivals on Nanushka.com, new-season pieces that explore our long-standing values of refined minimalism, comfort and functionality in timeless yet modern ways.</p>
-            <button onClick={()=>popupHadler()} className={s.params}>Sort by <img className={s.arrow} src={arrow} alt="arrow" /></button>
+            <button onClick={()=>popupHandler()} className={s.params}>Sort by <img className={s.arrow} src={arrow} alt="arrow" /></button>
             <div className={s.sort_popup} style={{display: popup}} >
                 <button onClick={() => sortHandler('Alphabetically, A-Z')} className={s.sort_button}>Alphabetically, A-Z</button>
                 <button onClick={() => sortHandler('Alphabetically, Z-A')} className={s.sort_button}>Alphabetically, Z-A</button>

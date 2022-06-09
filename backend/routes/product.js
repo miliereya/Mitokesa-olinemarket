@@ -13,7 +13,7 @@ router.route('/get').get((req, res) => {
     const {name, type, sex, collectionType, sort} = req.query
     const filter = {}
     if(name!==''){
-        filter.name = name
+        filter.name = new RegExp(name.toString().split(' ').join('-'), 'i')
     }
     if(type!==''){
         filter.type = type
