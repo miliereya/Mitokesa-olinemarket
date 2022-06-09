@@ -1,6 +1,7 @@
 :root {
   --color-dark: #1e1e20;
   --color-white: #ffffff;
+  --transition-default: all .3s ease;
 }
 
 body {
