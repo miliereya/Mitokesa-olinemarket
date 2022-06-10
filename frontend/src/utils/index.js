@@ -7,3 +7,9 @@ export const convertISODate = (date, type) => {
     const day = convertedDate.getDate()
     return type === 'post' ? `${day}/${month}/${year}` : `${month} ${day}, ${year}`
 }
+
+export const calculateTotalPrice = (arr) => {
+    return arr.reduce((total, item) => {
+        return total += item.price * item.quantity
+    }, 0)
+}
