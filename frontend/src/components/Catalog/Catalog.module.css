@@ -37,9 +37,10 @@
     text-decoration: none;
     color: #515153;
 }
-.photo {
+.img {
+    width: 100%;
     height: 500px;
-    background-color: aqua;
+    object-fit: cover;
 }
 @media (max-width: 900px) {
     .product {
