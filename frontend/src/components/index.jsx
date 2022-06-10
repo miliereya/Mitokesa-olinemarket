@@ -1,4 +1,5 @@
 export { NavBar } from './NavBar'
 export { Account } from './Account'
 export { Blog } from './Blog'
+export { Cart } from './Cart'
 export { Product } from './Product'
