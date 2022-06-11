@@ -11,7 +11,7 @@ export const NavBar = () => {
     const [catalog, setCatalog] = useState([])
 
     const popupHandler = () => {
-        popup==='none' ? (
+        return popup==='none' ? (
             setPopup('flex'), setSearchback('#e4e3e2')
         ) : (setPopup('none') , setSearchback('#f7f6f5'))
     }
@@ -43,27 +43,27 @@ export const NavBar = () => {
                     >
                         Woman
                     </NavLink>
-                    <NavLink 
+                    <NavLink
                         className={s.link}
                         to="catalog/man"
                     >
                         Man
                     </NavLink>
-                    <button 
-                        style={{backgroundColor: searchBack}} 
-                        onClick={()=>popupHandler()} 
+                    <button
+                        style={{backgroundColor: searchBack}}
+                        onClick={()=>popupHandler()}
                         className={s.link}>
-                            <img 
-                                className={s.search_icon} 
-                                src={searchIcon} 
-                                alt="search icon" 
+                            <img
+                                className={s.search_icon}
+                                src={searchIcon}
+                                alt="search icon"
                             />
                         Search
                     </button>
                     <div style={{display: popup}} className={s.search_container}>
-                        <input 
-                            className={s.search_input} 
-                            type="text" 
+                        <input
+                            className={s.search_input}
+                            type="text"
                             placeholder='Type here...'
                             onInput={e=>setSearch(e.target.value)}
                             value={search}
@@ -71,19 +71,19 @@ export const NavBar = () => {
                     </div>
                 </div>
                 <div className={s.wrapper}>
-                    <NavLink 
+                    <NavLink
                         className={s.link}
                         to="account"
                     >
                         Account
                     </NavLink>
-                    <NavLink 
+                    <NavLink
                         className={s.link}
                         to="blog"
                     >
                         Blog
                     </NavLink>
-                    <NavLink 
+                    <NavLink
                         className={s.link}
                         to="cart"
                     >

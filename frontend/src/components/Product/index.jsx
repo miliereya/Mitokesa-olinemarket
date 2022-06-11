@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { productsAPI } from '../../api'
+import {useLocalStorage} from "../../hooks/useLocalStorage.hook";
 import { spaceSplit } from '../../util'
 import s from './Product.module.css'
 
 export const Product = () => {
     const [product, setProduct] = useState()
     const [loading, setLoading] = useState(true)
+    const [cart, setCart] = useLocalStorage('cart', [])
 
     const params = useParams()
     const nav = useNavigate()
@@ -30,6 +32,22 @@ export const Product = () => {
         fetchData()
     },[params])
 
+    const addProductCart = () => {
+        const findProductCart = cart.find(p => p.name === product.name)
+        if (findProductCart) return
+
+        const productToCart = {
+            img: product.img,
+            name: product.name,
+            price: product.price,
+            stock: product.stock,
+            size: product.size,
+            quantity: 1,
+            collectionType: product.collectionType
+        }
+        setCart([...cart, productToCart])
+    }
+
     return (
         <div className={s.section}>
             {loading===true ? (
@@ -37,7 +55,7 @@ export const Product = () => {
                     Loading
                 </div>
             ) : ( <div className={s.wrapper}>
-                    <div className={s.img}></div>
+                    <img className={s.img} src={product.img} alt={product.name} />
                     <div className={s.info}>
                         <h2 className={s.name}>{spaceSplit(product.name)}<span>{product.price} €</span></h2>
                         <p className={s.type}>Type: {product.type}</p>
@@ -45,7 +63,7 @@ export const Product = () => {
                         <div className={s.divider}></div>
                         <p className={s.description}>{product.description}</p>
                         <p className={s.stock}>In stock: {product.stock}</p>
-                        <button className={s.btn}>Add to cart</button>
+                        <button className={s.btn} onClick={addProductCart}>Add to cart</button>
                     </div>
                 </div>
             )}

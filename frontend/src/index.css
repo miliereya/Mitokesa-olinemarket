@@ -1,6 +1,9 @@
 :root {
   --color-dark: #1e1e20;
+  --color-dark2: #2b2b2d;
   --color-white: #ffffff;
+  --color-border: #1e1e2033;
+  --color-light: #f0eeec;
   --transition-default: all .3s ease;
 }
 
@@ -13,7 +16,6 @@ body {
   line-height: 1.36;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
-  
 }
 textarea:focus, input:focus{
   outline: none;

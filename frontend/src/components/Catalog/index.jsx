@@ -52,13 +52,13 @@ export const Catalog = () => {
             </div>
             <div className={s.catalog}>
                 {catalog.map(product => {
-                    let {_id, name, type, collectionType, price} = product
+                    let {_id, img, name, type, collectionType, price} = product
 
-                    const pathname = '../catalog/' + collectionType + '/' + name 
+                    const pathname = '../catalog/' + collectionType + '/' + name
 
                     return (
                         <Link className={s.product} key={_id} to={pathname}>
-                            <div className={s.photo}></div>
+                            <img className={s.img} src={img} alt={name} />
                             <div className={s.info_container}>
                                 <div className={s.name_price_wrapper}>
                                     <p className={s.name}>{spaceSplit(name)}</p>
