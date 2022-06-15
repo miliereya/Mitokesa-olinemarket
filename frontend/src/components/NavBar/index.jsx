@@ -3,6 +3,7 @@ import s from './NavBar.module.css'
 import searchIcon from '../../img/search_icon.png'
 import { useEffect, useState } from 'react'
 import { productsAPI } from '../../api'
+import { spaceSplit } from '../../util'
 
 export const NavBar = () => {
     const [popup, setPopup] = useState('none')
@@ -23,7 +24,7 @@ export const NavBar = () => {
                     const data = await productsAPI.getProducts({
                         name: search
                     })
-                    console.log(data)
+                    setCatalog(data)
                 } catch (e) {
                     console.log(e)
                 }
@@ -68,6 +69,23 @@ export const NavBar = () => {
                             onInput={e=>setSearch(e.target.value)}
                             value={search}
                         />
+                        <div className={s.product_list}>
+                            {catalog.map(product => {
+                                let {_id, name, type, collectionType, price} = product
+
+                                const pathname = '../catalog/' + collectionType + '/' + name 
+                                
+                                return (
+                                    <NavLink 
+                                        key={_id} 
+                                        to={pathname} 
+                                        className={s.product}
+                                    >
+                                        <h3 className={s.info}>{spaceSplit(name)} / {spaceSplit(collectionType)}</h3>
+                                    </NavLink>
+                                )
+                            })}
+                        </div>
                     </div>
                 </div>
                 <div className={s.wrapper}>

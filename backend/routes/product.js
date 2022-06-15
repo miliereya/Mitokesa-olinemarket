@@ -51,7 +51,7 @@ router.route('/get').get((req, res) => {
 })
 
 router.route('/add').post((req, res) => {
-    const {name, description, type, sex, collectionType, price, sale, stock} = req.body
+    const {name, description, type, sex, collectionType, price, sale, stock, img} = req.body
 
     const newProduct = new Product({
         name,
@@ -61,7 +61,8 @@ router.route('/add').post((req, res) => {
         collectionType,
         price,
         sale,
-        stock
+        stock,
+        img
     })
 
     newProduct.save()
