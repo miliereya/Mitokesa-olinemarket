@@ -19,7 +19,7 @@ export const PostItem = ({slug, name, date, text}) => {
             </div>
             <h4 className={s.name}>{name}</h4>
             <span className={`${s.text} ${s.hidden} ${showText && s.active}`}>{text}</span>
-            <button className={s.button} onClick={handleShowText}>Read more <span>></span></button>
+            <button className={s.button} onClick={handleShowText}>Read more <span></span></button>
         </div>
     )
 }

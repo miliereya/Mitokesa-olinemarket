@@ -9,6 +9,7 @@ export const Product = () => {
     const [product, setProduct] = useState()
     const [loading, setLoading] = useState(true)
     const [cart, setCart] = useLocalStorage('cart', [])
+    const [color, setColor] = useState('#1e1e20')
 
     const params = useParams()
     const nav = useNavigate()
@@ -33,6 +34,7 @@ export const Product = () => {
     },[params])
 
     const addProductCart = () => {
+        setColor('gray')
         const findProductCart = cart.find(p => p.name === product.name)
         if (findProductCart) return
 
@@ -63,7 +65,7 @@ export const Product = () => {
                         <div className={s.divider}></div>
                         <p className={s.description}>{product.description}</p>
                         <p className={s.stock}>In stock: {product.stock}</p>
-                        <button className={s.btn} onClick={addProductCart}>Add to cart</button>
+                        <button style={{backgroundColor: color}} className={s.btn} onClick={addProductCart}>Add to cart</button>
                     </div>
                 </div>
             )}

@@ -41,7 +41,7 @@ export const Cart = () => {
                     <h3 className={s.title}>Order summary</h3>
                     <div className={s.subtotal}>
                         <span>Subtotal</span>
-                        <span>1 590 EUR</span>
+                        <span>0 EUR</span>
                     </div>
                     <div className={s.vat}>
                         <span>VAT</span>

@@ -30,6 +30,8 @@ export const NavBar = () => {
                 }
             }
             fetchData()
+        } else {
+            setCatalog([])
         }
     },[search])
 
@@ -71,17 +73,19 @@ export const NavBar = () => {
                         />
                         <div className={s.product_list}>
                             {catalog.map(product => {
-                                let {_id, name, type, collectionType, price} = product
+                                let {_id, img, name, collectionType} = product
 
                                 const pathname = '../catalog/' + collectionType + '/' + name 
-                                
+                                console.log(img)
                                 return (
                                     <NavLink 
+                                        onClick={()=>{setPopup('none')}}
                                         key={_id} 
                                         to={pathname} 
                                         className={s.product}
                                     >
-                                        <h3 className={s.info}>{spaceSplit(name)} / {spaceSplit(collectionType)}</h3>
+                                        <img className={s.img} src={img} alt={name} />
+                                        <p className={s.info}>{spaceSplit(name)} / {spaceSplit(collectionType)}</p>
                                     </NavLink>
                                 )
                             })}
