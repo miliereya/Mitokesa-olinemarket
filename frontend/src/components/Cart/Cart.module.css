@@ -125,3 +125,14 @@
     margin: 0;
     padding: 0;
 }
+
+@media (max-width: 768px) {
+    .info_text {
+        font-size: 9px;
+    }
+}
+@media (max-width: 688px) {
+    .wrapper {
+        flex-direction: column;
+    }
+}

@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import s from './NavBar.module.css'
 import searchIcon from '../../img/search_icon.png'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { productsAPI } from '../../api'
 import { spaceSplit } from '../../util'
 
@@ -10,11 +10,16 @@ export const NavBar = () => {
     const [searchBack, setSearchback] = useState('#f7f6f5')
     const [search, setSearch] = useState('')
     const [catalog, setCatalog] = useState([])
+    const inputEl = useRef(null)
 
     const popupHandler = () => {
         return popup==='none' ? (
             setPopup('flex'), setSearchback('#e4e3e2')
         ) : (setPopup('none') , setSearchback('#f7f6f5'))
+        
+    }
+    const refHandler = () => {
+        inputEl.current.focus();
     }
 
     useEffect(()=> {
@@ -54,7 +59,7 @@ export const NavBar = () => {
                     </NavLink>
                     <button
                         style={{backgroundColor: searchBack}}
-                        onClick={()=>popupHandler()}
+                        onClick={()=>{popupHandler();refHandler()}}
                         className={s.link}>
                             <img
                                 className={s.search_icon}
@@ -63,7 +68,7 @@ export const NavBar = () => {
                             />
                         Search
                     </button>
-                    <div style={{display: popup}} className={s.search_container}>
+                    <div ref={inputEl} style={{display: popup}} className={s.search_container}>
                         <input
                             className={s.search_input}
                             type="text"
@@ -76,10 +81,8 @@ export const NavBar = () => {
                                 let {_id, img, name, collectionType} = product
 
                                 const pathname = '../catalog/' + collectionType + '/' + name 
-                                console.log(img)
                                 return (
                                     <NavLink 
-                                        onClick={()=>{setPopup('none')}}
                                         key={_id} 
                                         to={pathname} 
                                         className={s.product}

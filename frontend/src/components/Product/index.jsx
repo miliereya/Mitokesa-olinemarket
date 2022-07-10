@@ -10,6 +10,7 @@ export const Product = () => {
     const [loading, setLoading] = useState(true)
     const [cart, setCart] = useLocalStorage('cart', [])
     const [color, setColor] = useState('#1e1e20')
+    const [imgDisplay, setImgDisplay] = useState('none')
 
     const params = useParams()
     const nav = useNavigate()
@@ -50,6 +51,10 @@ export const Product = () => {
         setCart([...cart, productToCart])
     }
 
+    const imgHandler = () => {
+        imgDisplay==='none'? setImgDisplay('block'):setImgDisplay('none')
+    }
+
     return (
         <div className={s.section}>
             {loading===true ? (
@@ -57,7 +62,9 @@ export const Product = () => {
                     Loading
                 </div>
             ) : ( <div className={s.wrapper}>
-                    <img className={s.img} src={product.img} alt={product.name} />
+                    <div onClick={()=>imgHandler()} className={s.mask} style={{display: imgDisplay}}></div>
+                    <img onClick={()=>imgHandler()} style={{display: imgDisplay}} className={s.img_fullsize} src={product.img} alt={product.name} />
+                    <img onClick={()=>imgHandler()} className={s.img} src={product.img} alt={product.name} />
                     <div className={s.info}>
                         <h2 className={s.name}>{spaceSplit(product.name)}<span>{product.price} €</span></h2>
                         <p className={s.type}>Type: {product.type}</p>

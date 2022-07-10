@@ -73,3 +73,9 @@
 .delete:hover {
     color: red;
 }
+@media (max-width: 600px) {
+    .quantity {
+        font-weight: bold;
+        text-align: center;
+    }   
+}

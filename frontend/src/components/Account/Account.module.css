@@ -60,3 +60,9 @@
 .checkbox {
     margin-bottom: 10px;
 }
+@media (max-width: 768px) {
+    .sign {
+        flex-direction: column;
+        width: 300px
+    }
+}
